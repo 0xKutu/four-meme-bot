@@ -1,6 +1,5 @@
+import { BLOXROUTE_API_KEY, BLOXROUTE_BSC_BUNDLE_URL } from "../utils/config";
 import { getCurrentBlockNumber } from "./helper-contract";
-const BLOXROUTE_BSC_BUNDLE_URL = 'https://api.blxrbdn.com';
-const BLOXROUTE_API_KEY = "N2QyZDU0OGItYzE1NS00ZTZhLTg2ZWMtMGQ4ZDFhNjk1MzViOmNiOGRlOWQwMGY3NjkxYjIwYTgzMTNkOGRiYjNlNWY3";
 
 export const sendBundleTxs = async (txs: string[]) => {
   const currentBlock = await getCurrentBlockNumber();

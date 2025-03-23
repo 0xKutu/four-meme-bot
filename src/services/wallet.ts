@@ -1,8 +1,8 @@
 import { ethers, formatEther, parseUnits } from 'ethers';
 import * as fs from 'fs';
 import * as path from 'path';
-import { BSC_RPC_URL, getProvider } from '../utils/web3';
-import { createWalletClient, http, parseEther, createPublicClient, Address } from 'viem';
+import { BSC_RPC_URL, getProvider, publicClient } from '../utils/web3';
+import { createWalletClient, http, parseEther, Address } from 'viem';
 import { bsc } from 'viem/chains';
 import { privateKeyToAccount } from 'viem/accounts';
 import { sendBundleTxs } from './bloxroute';
@@ -13,11 +13,6 @@ const WALLETS_DIR = path.join(__dirname, '../data/wallets');
 if (!fs.existsSync(WALLETS_DIR)) {
   fs.mkdirSync(WALLETS_DIR, { recursive: true });
 }
-
-const publicClient = createPublicClient({
-  chain: bsc,
-  transport: http("https://bsc-dataseed.binance.org")
-});
 
 // Initialize provider
 const provider = getProvider();

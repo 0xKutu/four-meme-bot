@@ -1,13 +1,11 @@
 import { Telegraf } from 'telegraf';
-import dotenv from 'dotenv';
 import { createWallets, distributeTokens, getWallets, getWalletsAddresses } from './services/wallet';
 import { buyTokens, sellTokens } from './services';
 import { isAddress } from 'ethers';
 import { getTotalTokenBalance, getUserTokenBalances } from './services/tokens';
+import { BOT_TOKEN } from './utils/config';
 
-dotenv.config();
-
-const bot = new Telegraf(process.env.BOT_TOKEN || '');
+const bot = new Telegraf(BOT_TOKEN || '');
 
 bot.command('start', (ctx) => {
   ctx.reply('Welcome to Four.meme Manager Bot! Use /help to see available commands.');
